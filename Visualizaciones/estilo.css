@@ -1,0 +1,21 @@
+/* """
+			---------------------------
+			||	ROYECTO INTEGRADOR	||
+			---------------------------
+
+Docente: Rene Elizalde
+Integrantes: - Roberto Narvaez
+			 - Juan Yanza
+
+""" */
+body{
+
+  background-image: url("data/fondo.png");
+
+}
+
+#encabezado{
+	text-align: center;
+ 	color: black;
+  	font-family: 'Courier New';
+}	

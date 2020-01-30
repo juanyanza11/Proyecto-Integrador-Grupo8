@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen" />
+    <meta charset="UTF-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
+
+    <title>UTPL - Proyecto Integrador De Saberes</title>
+
+    </style>
+</head>
+<body>
+<div id = 'encabezado'>
+<img src = "/data/logo.png" height="75" width="100" align="left"><br>
+<h1>Número de Tweets y ReTweets por día</h1>
+<h3>Roberto Narváez<br>Juan Yanza</h3>
+</div>
+
+<!-- Container for the visualization -->
+<div id = 'graficas' align="center">
+<div id="vis1"></div>
+<div id="vis2"></div></div>
+
+<script>
+    // Assign the specification to a local variable vlSpec.
+    
+    const vlSpec1 = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+        data: {
+            "url": "data/data_diasTweet.csv"
+        },
+        "width": 420,
+        "height": 300,
+        mark: 'bar',
+        encoding: {
+            x: {
+                field: 'dia',
+                type: 'quantitative',
+                title: 'dia',
+            },
+            y: {
+                field: 'numero',
+                aggregate: 'sum',
+                type: 'quantitative',
+                title: '# Tweets'
+            }
+        }
+    };
+    const vlSpec2 = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+        data: {
+            "url": "data/data_diasreTweet.csv"
+        },
+        "width": 420,
+        "height": 300,
+        mark: 'bar',
+        encoding: {
+            x: {
+                field: 'dia',
+                type: 'quantitative',
+                title: 'dia',
+            },
+            y: {
+                field: 'numero',
+                aggregate: 'sum',
+                type: 'quantitative',
+                title: '# ReTweets'
+            }
+        }
+    };
+    vegaEmbed('#vis2', vlSpec2);
+    vegaEmbed('#vis1', vlSpec1);
+</script>
+</body>
+</html>
