@@ -20,11 +20,12 @@
 <body>
 <div id = 'encabezado'>
 <img src = "/data/logo.png" height="75" width="100" align="left"><br>
-<h1>Distribución de Hasthags</h1>
+<h1>Distribución de URLS</h1>
 <h3>Roberto Narváez<br>Juan Yanza</h3>
 </div>
 
 <div id = 'graficas' align="center">
+<div id="vis1"></div>
 <div id="vis2"></div></div>
 
 <script>
@@ -33,21 +34,22 @@
     const vlSpec2 = {
         $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
         data: {
-            "url": "data/data_contMenciones.csv"
+            "url": "data/data_urlVIS.csv"
         },
-        "width": 500 ,
-        "height": 350 ,
+        "width": 500,
+        "height": 350,
         mark: 'bar',
         encoding: {
             x: {
-                field: 'nombre',
+                field: 'url',
                 type: 'ordinal',
-                title: 'Nombres'
+                title: 'URLS',
+                sort: null
             },
             y: {
                 field: 'numero',
                 type: 'quantitative',
-                title: 'Numero de menciones'
+                title: '# USADOS'
             }
         }
     };

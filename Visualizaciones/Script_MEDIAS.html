@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="estilo.css" rel="stylesheet" type="text/css">
+    
+    <meta charset="UTF-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.2.1"></script>
+
+    <title>DataViz - Proyecto Programaci&oacute;n Funcional y Reactiva</title>
+
+    <style media="screen">
+        /* Add space between Vega-Embed links  */
+        .vega-actions a {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div id = 'encabezado'>
+<img src = "/data/logo.png" height="75" width="100" align="left"><br>
+<h1>Distribución de Media</h1>
+<h3>Roberto Narváez<br>Juan Yanza</h3>
+</div>
+<!-- Container for the visualization -->
+<div id = 'graficas' align="center"><div id="vis1"></div></div>
+<div id = 'graficas2' align="center"><div id="vis2"></div></div>
+
+<script id = 'tabla'>
+    // Assign the specification to a local variable vlSpec.
+    
+    const vlSpec2 = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v4.json',
+        data: {
+            "url": "data/data_ContMedia.csv"
+        },
+        "width": 420,
+        "height": 300,
+        "align": "right",
+        mark: 'bar',
+        encoding: {
+            x: {
+                field: 'Medias',
+                title: 'Medias',
+                type: 'ordinal',
+                sort: null
+            },
+            y: {
+                field: 'Numero',
+                type: 'quantitative',
+                title: 'Numero'
+            }
+        }
+    };
+    vegaEmbed('#vis2', vlSpec2);
+</script>
+</body>
+</html>

@@ -40,14 +40,14 @@ id_str = list(map(lambda x: x['id_str'], lista))
 union = list(zip(id_str, urls))
 #print(entidades)
 
-archivo = open("data/data_urls.csv","a", encoding="utf-8")
+archivo = open("data/data_url.csv","a", encoding="utf-8")
 # Encabezados para BD
 
-archivo.write("%s;%s;%s;%s\n"%("ids","url","display_url","expanded_url"))#,"media_url_https","expanded_url","display_url","url","type"))
+archivo.write("%s;%s\n"%("ids","url"))#,"media_url_https","expanded_url","display_url","url","type"))
 # Accedemos a la union con zip, al objeto media y abstraemos las llaves con un for
 for l in union:
 	for x in l[1]:
-		archivo.write("%s;%s;%s;%s\n"%(l[0], x['url'],x['display_url'],x['expanded_url']))
+		archivo.write("%s;%s\n"%(l[0], x['url']))
 archivo.close()
 
 #print(urls)
